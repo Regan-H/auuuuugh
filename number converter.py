@@ -2,8 +2,7 @@ ui = input("insert a number here")
 ulil = []
 hfgdf = []
 ertfgujhik = []
-num1 = 0
-num2 = 0
+b = 1
 choice = input("What would you like to do? Add binary, or convert between them")
 choice.lower()
 dec = ["2", "3", "4", "5", "6", "7", "8", "9"]
@@ -39,16 +38,21 @@ else:
         for e in ko:
             hfgdf.append(e)
         hfgdf = list(map(int, hfgdf))
-        for i in range(len(ulil)):
-            num1 += ulil[-i-1]*(2**(i))
-        for i in range(len(hfgdf)):
-            num2 += hfgdf[-i-1]*(2**(i))
-        total = num1 + num2
-        while total>0:
-            rem = total % 2
-            ertfgujhik.append(rem)
-            total = total//2
-        ertfgujhik = list(map(str, ertfgujhik))
-        print(''.join(ertfgujhik[::-1]))
+        hjkl = max(len(hfgdf), len(ulil))
+        for i in range(hjkl+1):
+            if b+1 > len(ulil):
+                ulil.insert(0, 0)
+            if b+1 > len(hfgdf):
+                hfgdf.insert(0, 0)
+            sa = hfgdf[-b]+ulil[-b]
+            if sa == 1:
+                ertfgujhik.append('1')
+            elif sa > 1:
+                ertfgujhik.append('0')
+                ulil[-b-1] += 1
+            else:
+                ertfgujhik.append('0')
+            b += 1 
+        print(''.join(ertfgujhik))             
     else:
         print("this is not a valid function")
